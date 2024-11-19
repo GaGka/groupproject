@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 새 글 작성
+  form(action="/board/posts" method="POST")
+    div
+      label(for="title") 제목
+      input(type="text" name="title" id="title" required)
+    div
+      label(for="content") 내용
+      textarea(name="content" id="content" required)
+    button(type="submit") 등록

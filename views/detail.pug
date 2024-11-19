@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= post.title
+  p= post.content
+  p 작성일: #{post.createdAt.toLocaleDateString()}
+  a(href="/board") 목록으로 돌아가기

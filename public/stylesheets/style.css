@@ -1,0 +1,104 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#map-container {
+  position: relative;
+  width: 100vw;  /* 전체 화면 너비 */
+  height: 100vh; /* 전체 화면 높이 */
+  overflow: hidden; /* 드래그 가능한 영역 */
+  cursor: grab;
+}
+
+#map-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: top left; /* 이미지의 좌상단을 기준으로 확대/축소 */
+  will-change: transform; /* 성능 최적화 */
+}
+
+.marker {
+  position: absolute;
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
+  border: 2px solid white; /* 흰색 외곽선 추가 */
+  border-radius: 50%; /* 둥글게 만들어 강조 */
+  background-color: rgba(49, 47, 189, 0.6); /* 반투명 배경색 추가 */
+  padding: 4px; /* 마커를 더 크게 보이도록 여백 추가 */
+  z-index: 20; /* 지도 이미지 위에 표시되도록 설정 */
+}
+#reset-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#reset-button:hover {
+  background-color: #0056b3;
+}
+.info-box {
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  z-index: 30; /* 마커 위에 표시 */
+  display: none; /* 초기에는 숨김 */
+}
+
+.info-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.info-box button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.info-box button:hover {
+  background-color: #0056b3;
+}
+
+#board-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+}
+
+#board-button:hover {
+  background-color: #218838;
+}

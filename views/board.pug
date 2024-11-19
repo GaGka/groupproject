@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 게시판
+  a(href="/board/posts/new") 글쓰기
+  ul
+    each post in posts
+      li
+        a(href=`/board/posts/${post._id}`) #{post.title}
+        span | #{post.createdAt.toLocaleDateString()}
+  a(href="/") 돌아가기
