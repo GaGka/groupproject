@@ -15,7 +15,7 @@ var app = express();
 
 // MongoDB 연결
 mongoose
-  .connect('mongodb://admin:password@mongo:27017', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://admin:password@mongo:27017', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 50000, socketTimeoutMS: 45000, })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
