@@ -15,7 +15,7 @@ var app = express();
 
 // MongoDB 연결
 mongoose
-  .connect('svc.sel4.cloudtype.app:30556/board', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://admin:password@mongo:27017', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
