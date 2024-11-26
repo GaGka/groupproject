@@ -15,7 +15,7 @@ var app = express();
 
 // MongoDB 연결
 mongoose
-  .connect('mongodb://admin:password@mongo:27017', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 50000, socketTimeoutMS: 45000, })
+  .connect('mongodb+srv://uos:0000@projecttoil.drmkv.mongodb.net/?retryWrites=true&w=majority&appName=projectToil', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 50000, socketTimeoutMS: 45000, })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
