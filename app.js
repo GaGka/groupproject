@@ -15,7 +15,7 @@ var app = express();
 
 // MongoDB 연결
 mongoose
-  .connect('mongodb://127.0.0.1:27017/board', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect('mongodb://mongo:30556/board', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
