@@ -755,3 +755,8 @@ const markersData = [
         markerContent: "미래관" // 마커의 모양 (텍스트)
     }, 
 ];
+
+const boardButton = document.getElementById('board-button');
+boardButton.addEventListener('click', () => {
+    window.location.href = '/board'; // 게시판 URL
+});
