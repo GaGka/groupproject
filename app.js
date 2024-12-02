@@ -1,3 +1,4 @@
+// 모듈 변수 설정
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -15,11 +16,12 @@ var app = express();
 
 // MongoDB 연결
 mongoose
-  .connect('mongodb+srv://uos:0000@projecttoil.drmkv.mongodb.net/?retryWrites=true&w=majority&appName=projectToil', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 50000, socketTimeoutMS: 45000, })
+  .connect('mongodb+srv://uos:0000@projecttoil.drmkv.mongodb.net/?retryWrites=true&w=majority&appName=projectToil', 
+    { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 50000, socketTimeoutMS: 45000, })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
 
-// view engine setup
+// pug로 엔진 설정
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -32,18 +34,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 
-// catch 404 and forward to error handler
+// 404에러 발견, 에러 처리
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// 에러 처리
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // 에러 페이지 표시
   res.status(err.status || 500);
   res.render('error');
 });
